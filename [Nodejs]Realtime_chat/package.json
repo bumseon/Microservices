@@ -1,5 +1,5 @@
 {
-  "name": "gif-chat",
+  "name": "Realtimechat",
   "version": "0.0.1",
   "description": "",
   "main": "app.js",
@@ -7,13 +7,14 @@
     "start": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Zero Cho",
+  "author": "bumseon",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
     "color-hash": "^1.0.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
+    "cookie-signature": "^1.1.0",
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
