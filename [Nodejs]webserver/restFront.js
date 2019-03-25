@@ -67,6 +67,8 @@ document.getElementById('form').addEventListener('submit', function (e) {
   var xhr = new XMLHttpRequest();
   xhr.onload = function () {
     if (xhr.status === 201) {
+  // if ([200, 201].indexof(xhr.status) > -1)   // internet Explorer 지원하려면
+  // if ([200, 201].includes(xhr.status))
       console.log(xhr.responseText);
       getUser();
     } else {
