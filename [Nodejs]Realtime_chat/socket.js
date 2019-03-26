@@ -49,6 +49,9 @@ module.exports = (server, app, sessionMiddleware) => {
     socket.on('disconnect', () => {
       console.log('chat 네임스페이스 접속 해제');
       socket.leave(roomId);
+      // 방장이 나간 경우 방 인원 중 랜덤 한명 골라서 방장 위임
+      // 몽고디비로 room 스키마 owner update
+      
       const currentRoom = socket.adapter.rooms[roomId];
       const userCount = currentRoom ? currentRoom.length : 0;
       if (userCount === 0) {
@@ -79,5 +82,11 @@ module.exports = (server, app, sessionMiddleware) => {
     socket.on('dm', (data) => {
       socket.to(data.target).emit('dm', data);
     });
+    socket.on('ban', (data) => {
+      socket.to(data.id).emit('ban');
+    });
+    // socket.on('delegate', (data) => {
+    //   socket.to(data.id).emit('delegate');
+    // });
   });
 };
